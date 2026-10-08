@@ -82,77 +82,23 @@
     </div>
   </div>
 
-  <div class="container my-5 text-center">
-    
-    <!-- display-5 -> estilização dos títulos + tamanho (5) -->
-    <h1 class="display-5 fw-bold">Bootstrap na prática</h1>
-    <!-- lead -> estilização dos textos -->
-    <p class="lead">
-      Componentes prontos + classes utilitárias.
-    </p>
-    
-    <!-- ----------------------------
-    O Bootstrap divide a largura em 12 colunas.
-    .col-md-4 = ocupa 4/12 (um terço) a partir do tamanho "md" (tablet/desktop).
-    Se não definir em outras medidas, apenas md, quando estiver em telas pequenas, irá ocupar a linha inteira (empilhando automaticamente).
-    ---------------------------- -->
-    <section class="mb-5">
-      <!-- row -> como a propriedade flex, deixa os itens lado a lado, em linha -->
-      <!-- g-3 -> gap (espaçamento entre os itens) -->
-      <div class="row g-3">
-        <div class="col-md-4">
-          <div class="p-3 bg-primary text-white rounded text-center">col-md-4</div>
+  <section id="inicio" class="py-5">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bold">Café de origem, torrado com propósito.</h1>
+          <p class="lead text-secondary">
+            A Grão Nobre trabalha direto com pequenos produtores para levar até
+            você grãos especiais, torrados em lotes pequenos toda semana.
+          </p>
         </div>
-        <div class="col-md-4">
-          <div class="p-3 bg-primary text-white rounded text-center">col-md-4</div>
-        </div>
-        <div class="col-md-4">
-          <div class="p-3 bg-primary text-white rounded text-center">col-md-4</div>
+        <div class="col-lg-6">
+          <!-- imagem do hero entra na próxima etapa -->
         </div>
       </div>
-      
-      <div class="row g-3 mt-2">
-        <div class="col-md-8">
-          <div class="p-3 bg-secondary text-white rounded text-center">col-md-8</div>
-        </div>
-        <div class="col-md-4">
-          <div class="p-3 bg-secondary text-white rounded text-center">col-md-4</div>
-        </div>
-      </div>
-    </section>
-    
-    
-    <section id="componentes" class="mb-5">
-      <div class="mt-4">
-        <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exemploModal">
-          Abrir modal
-        </button>
-      </div>
-      
-      <div class="modal fade" id="exemploModal" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal pronto</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-              Esse comportamento (abrir/fechar) já vem pronto no JavaScript do Bootstrap,
-              sem precisar escrever nenhuma linha de JS própria.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    
-    <div class="alert alert-secondary">
-      <strong>Particularidade do Bootstrap:</strong> tudo que vimos do Bootstrap (navbar, cards,
-      botões, modal, formulário, etc.) já tem visual pronto só com as classes. O trabalho de
-      customização é sobrescrever ou ajustar as variáveis para fugir da "cara padrão".
     </div>
-  </div>
-  
+  </section>
+
   <footer class="bg-dark text-white text-center py-3">
     Demo Bootstrap 5.3
   </footer>
