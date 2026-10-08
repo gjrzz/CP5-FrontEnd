@@ -29,6 +29,7 @@
       aspect-ratio: 4 / 3;
       background: linear-gradient(135deg, #e8cfa6, #c89b5e);
     }
+    .bg-brand { background-color: var(--brand-accent); }
   </style>
 </head>
 <body>
@@ -99,6 +100,29 @@
         <div class="col-lg-6">
           <div class="hero-image rounded d-flex align-items-center justify-content-center">
             <span class="text-uppercase small text-secondary fw-semibold">Imagem hero</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="depoimentos" class="py-5 text-center">
+    <div class="container">
+      <p class="text-uppercase text-brand fw-bold small mb-1">Quem já experimentou</p>
+      <h2 class="fw-bold mb-5">O que dizem nossos clientes</h2>
+
+      <div id="depoimentosCarousel" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="mx-auto" style="max-width: 500px;">
+              <div class="text-warning mb-3">★★★★★</div>
+              <p class="fst-italic">"Melhor café que já experimentei em assinatura. Chega sempre fresquinho."</p>
+              <div class="d-flex flex-column align-items-center mt-3">
+                <div class="rounded-circle bg-brand" style="width: 48px; height: 48px;"></div>
+                <strong class="mt-2">Marina Alves</strong>
+                <span class="text-secondary small">Assinante desde 2023</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
