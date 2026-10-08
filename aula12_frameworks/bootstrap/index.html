@@ -30,6 +30,25 @@
       background: linear-gradient(135deg, #e8cfa6, #c89b5e);
     }
     .bg-brand { background-color: var(--brand-accent); }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      filter: invert(1) grayscale(1);
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 5%;
+      opacity: 1;
+    }
+    .carousel-indicators [data-bs-target] {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #ccc;
+      opacity: 1;
+    }
+    .carousel-indicators .active {
+      background-color: var(--brand-accent);
+    }
   </style>
 </head>
 <body>
@@ -124,6 +143,43 @@
               </div>
             </div>
           </div>
+          <div class="carousel-item">
+            <div class="mx-auto" style="max-width: 500px;">
+              <div class="text-warning mb-3">★★★★★</div>
+              <p class="fst-italic">"A torra é sempre muito equilibrada, dá pra sentir a diferença de um café de origem."</p>
+              <div class="d-flex flex-column align-items-center mt-3">
+                <div class="rounded-circle bg-brand" style="width: 48px; height: 48px;"></div>
+                <strong class="mt-2">João Pereira</strong>
+                <span class="text-secondary small">Assinante desde 2024</span>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="mx-auto" style="max-width: 500px;">
+              <div class="text-warning mb-3">★★★★★</div>
+              <p class="fst-italic">"Atendimento excelente e entrega rápida. Recomendo demais!"</p>
+              <div class="d-flex flex-column align-items-center mt-3">
+                <div class="rounded-circle bg-brand" style="width: 48px; height: 48px;"></div>
+                <strong class="mt-2">Carla Mendes</strong>
+                <span class="text-secondary small">Assinante desde 2022</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#depoimentosCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#depoimentosCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Próximo</span>
+        </button>
+
+        <div class="carousel-indicators position-relative mt-4">
+          <button type="button" data-bs-target="#depoimentosCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+          <button type="button" data-bs-target="#depoimentosCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#depoimentosCarousel" data-bs-slide-to="2"></button>
         </div>
       </div>
     </div>
