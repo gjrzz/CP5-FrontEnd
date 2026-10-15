@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raiz Urbana | Jardins para a cidade</title>
+  <style>
+    :root {
+      --fundo: #f6f7f2;
+      --verde: #183d32;
+      --laranja: #e47b45;
+      --cartao: #ffffff;
+      --texto: #26372f;
+      --texto-suave: #637168;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--fundo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 40px, 980px);
+      margin: 0 auto;
+    }
+
+    header {
+      background: #ffffff;
+    }
+
+    .navbar {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: var(--laranja);
+    }
+
+    nav {
+      display: flex;
+      gap: 26px;
+      color: var(--texto-suave);
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--verde);
+    }
+
+    .botao {
+      display: inline-block;
+      padding: 11px 18px;
+      border: 0;
+      border-radius: 5px;
+      background: var(--laranja);
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .botao:hover {
+      background: var(--verde);
+    }
+
+    .hero {
+      padding: 82px 20px;
+      background: linear-gradient(rgba(24, 61, 50, .72), rgba(24, 61, 50, .72)), url("https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1600&q=80") center / cover;
+      text-align: center;
+    }
+
+    .hero h1 {
+      max-width: 620px;
+      margin: 0 auto;
+      color: white;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.12;
+    }
+
+    .hero p {
+      max-width: 570px;
+      margin: 18px auto 24px;
+      color: #f0f4ee;
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 64px 0;
+    }
+
+    .intro {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--laranja);
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    .intro p:last-child {
+      max-width: 620px;
+      margin: 12px auto 0;
+      color: var(--texto-suave);
+      line-height: 1.6;
+    }
+
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .servico {
+      min-height: 128px;
+      padding: 20px;
+      border: 1px solid #dfe6dc;
+      border-radius: 6px;
+      background: var(--cartao);
+    }
+
+    .servico h3 {
+      margin: 0 0 10px;
+      color: var(--verde);
+      font-size: 15px;
+    }
+
+    .servico p {
+      margin: 0;
+      color: var(--texto-suave);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .sobre {
+      background: #e7eee5;
+    }
+
+    .sobre-conteudo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .sobre-texto h3 {
+      margin: 0 0 14px;
+      color: var(--verde);
+      font-size: 17px;
+    }
+
+    .sobre-texto p {
+      color: var(--texto-suave);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .arte {
+      position: relative;
+      min-height: 210px;
+      overflow: hidden;
+      border-radius: 12px;
+      background: url("https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1000&q=80") center / cover;
+    }
+
+    .bolha {
+      position: absolute;
+      width: 58px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: none;
+    }
+
+    .bolha:nth-child(1) { top: 18%; left: 12%; }
+    .bolha:nth-child(2) { top: 18%; left: 40%; width: 72px; }
+    .bolha:nth-child(3) { top: 20%; right: 12%; width: 82px; }
+    .bolha:nth-child(4) { bottom: 14%; left: 25%; width: 46px; }
+    .bolha:nth-child(5) { bottom: 14%; right: 18%; width: 66px; }
+
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .depoimento {
+      padding: 22px;
+      border-radius: 8px;
+      background: var(--cartao);
+      text-align: center;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: var(--laranja);
+    }
+
+    .depoimento p {
+      min-height: 60px;
+      color: var(--texto-suave);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .depoimento strong {
+      font-size: 13px;
+    }
+
+    .contato {
+      padding-top: 12px;
+    }
+
+    .contato-conteudo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .contato .arte {
+      min-height: 220px;
+    }
+
+    form {
+      padding: 22px;
+      border: 1px solid #dfe6dc;
+      border-radius: 6px;
+      background: var(--cartao);
+    }
+
+    form h3 {
+      margin: 0 0 8px;
+      color: var(--verde);
+    }
+
+    form p {
+      margin: 0 0 16px;
+      color: var(--texto-suave);
+      font-size: 13px;
+    }
+
+    label {
+      display: block;
+      margin: 12px 0 5px;
+      font-size: 12px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cbd7cb;
+      border-radius: 4px;
+      background: #f7f8f5;
+      color: var(--texto);
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    form .botao {
+      margin-top: 14px;
+    }
+
+    footer {
+      padding: 34px 0 18px;
+      background: var(--verde);
+      color: var(--texto-suave);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .footer-info {
+      display: flex;
+      justify-content: space-around;
+      gap: 24px;
+      margin-bottom: 26px;
+    }
+
+    footer h3 {
+      margin: 0 0 8px;
+      color: white;
+      font-size: 14px;
+    }
+
+    footer p {
+      margin: 4px 0;
+    }
+
+    .copyright {
+      padding-top: 16px;
+      border-top: 1px solid #49665b;
+    }
+
+    @media (max-width: 700px) {
+      .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 16px 0;
+      }
+
+      nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 18px;
+      }
+
+      .hero {
+        padding: 64px 20px;
+      }
+
+      .servicos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .sobre-conteudo,
+      .contato-conteudo {
+        grid-template-columns: 1fr;
+      }
+
+      .depoimentos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .depoimento p {
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        width: min(100% - 28px, 980px);
+      }
+
+      .servicos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-info {
+        flex-direction: column;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="#inicio">Raiz <span>Urbana</span></a>
+      <nav aria-label="Navegação principal">
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre nós</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a class="botao" href="#contato">Peça um orçamento</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <h1>Mais verde em cada canto da cidade.</h1>
+        <p>Criamos jardins, hortas e pequenos refúgios naturais para casas, varandas e espaços de trabalho.</p>
+        <a class="botao" href="#servicos">Conheça nossos serviços</a>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="container">
+        <div class="intro">
+          <p class="eyebrow">Nossos serviços</p>
+          <h2>Serviços</h2>
+          <p>Ideias simples para deixar sua rotina mais perto da natureza.</p>
+        </div>
+        <div class="servicos-grid">
+          <article class="servico">
+            <h3>Jardins residenciais</h3>
+            <p>Planejamos jardins para quintais, entradas e pequenos pátios.</p>
+          </article>
+          <article class="servico">
+            <h3>Jardins verticais</h3>
+            <p>Usamos paredes e estruturas para criar mais espaço verde.</p>
+          </article>
+          <article class="servico">
+            <h3>Hortas urbanas</h3>
+            <p>Montamos hortas práticas para cultivar temperos e alimentos.</p>
+          </article>
+          <article class="servico">
+            <h3>Manutenção</h3>
+            <p>Cuidamos das plantas para que seu jardim continue bonito e saudável.</p>
+          </article>
+          <article class="servico">
+            <h3>Consultoria verde</h3>
+            <p>Ajudamos a escolher plantas adequadas para cada ambiente.</p>
+          </article>
+          <article class="servico">
+            <h3>Vasos e ambientação</h3>
+            <p>Combinamos vasos e plantas para renovar espaços internos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sobre" id="sobre">
+      <div class="container">
+        <div class="intro">
+          <p class="eyebrow">Nossa história</p>
+          <h2>Sobre nós</h2>
+        </div>
+        <div class="sobre-conteudo">
+          <div class="sobre-texto">
+            <h3>Um pouco de natureza muda o dia.</h3>
+            <p>A Raiz Urbana nasceu para trazer mais plantas para a vida na cidade. A gente ajuda cada pessoa a encontrar um jeito simples de cuidar do verde, mesmo com pouco espaço.</p>
+            <p>Trabalhamos com espécies que combinam com o ambiente e com o tempo que cada cliente tem para cuidar delas.</p>
+          </div>
+          <div class="arte" role="img" aria-label="Plantas verdes em um jardim urbano"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="depoimentos">
+      <div class="container">
+        <div class="intro">
+          <p class="eyebrow">Experiências reais</p>
+          <h2>O que nossos clientes dizem</h2>
+        </div>
+        <div class="depoimentos-grid">
+          <article class="depoimento">
+            <div class="avatar" aria-hidden="true"></div>
+            <p>“Minha varanda ficou linda e agora tenho temperos frescos para cozinhar.”</p>
+            <strong>Marina Alves</strong>
+          </article>
+          <article class="depoimento">
+            <div class="avatar" aria-hidden="true"></div>
+            <p>“A equipe aproveitou cada cantinho do quintal. Ficou muito melhor do que eu imaginava.”</p>
+            <strong>João Pereira</strong>
+          </article>
+          <article class="depoimento">
+            <div class="avatar" aria-hidden="true"></div>
+            <p>“Aprendi quais plantas funcionam bem no meu apartamento e cuidar delas virou um hobby.”</p>
+            <strong>Fernanda Rocha</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contato" id="contato">
+      <div class="container">
+        <div class="intro">
+          <p class="eyebrow">Vamos conversar</p>
+          <h2>Contato</h2>
+        </div>
+        <div class="contato-conteudo">
+          <div class="arte" role="img" aria-label="Plantas em vasos em um espaço iluminado"></div>
+          <form>
+            <h3>Conte como podemos ajudar</h3>
+            <p>Deixe seus dados e a gente conversa sobre seu espaço.</p>
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" required>
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" required>
+            <label for="espaco">Tipo de espaço</label>
+            <input id="espaco" name="espaco" type="text" placeholder="Varanda, quintal, escritório...">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" required></textarea>
+            <button class="botao" type="submit">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-info">
+        <div><h3>Raiz Urbana</h3><p>Jardins para a cidade</p></div>
+        <div><h3>Contato</h3><p>oi@raizurbana.com.br</p><p>(11) 4000-2026</p></div>
+        <div><h3>Endereço</h3><p>Rua das Palmeiras, 120</p><p>São Paulo, SP</p></div>
+      </div>
+      <div class="copyright">© 2026 Raiz Urbana. Projeto fictício para fins didáticos.</div>
+    </div>
+  </footer>
+</body>
+</html>
