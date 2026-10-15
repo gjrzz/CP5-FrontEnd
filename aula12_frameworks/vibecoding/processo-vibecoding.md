@@ -6,23 +6,7 @@ Arquivo consultado: `Modelos das atividades/Atividade-Vibecode.txt`.
 
 Resumo: criar uma landing page de tema livre e registrar o caminho de criação, incluindo prompts, pesquisas, decisões de design, referências visuais e paleta de cores. O foco também é mostrar como a ideia foi refinada e como a página foi revisada.
 
-## Prompts registrados
 
-1. Pedido inicial: “boa agora leia o txt de vibecoding da mesma pasta e faca a mesma coisa, diferente e simples”.
-2. Busca pelo enunciado: “procura dnv ai”.
-3. Pedido com caminho exato: “C:\Users\gabef\OneDrive\Documentos\FIAP\DEV\FrontEnd\CP5\CP5-FrontEnd\Modelos das atividades\Atividade-Vibecode.txt faca as alteracoes na pasta vibecoding dentro do projeto aqui”.
-4. Direção da atividade: criar uma landing page simples, diferente das anteriores, seguindo as orientações do arquivo.
-
-## Pesquisas e referências
-
-- Busca inicial por arquivos com “vibe” no nome e por arquivos `.txt` no projeto. A primeira busca não localizou o enunciado; os arquivos encontrados foram as orientações de Bootstrap e Tailwind.
-- Busca repetida por `vibe` e por todos os arquivos `.txt`, incluindo arquivos ignorados. O enunciado não apareceu até o caminho completo ser enviado.
-- Depois que o caminho completo foi informado, o enunciado `Atividade-Vibecode.txt` foi aberto e lido.
-- Pesquisa externa: não realizada.
-- Referência de layout externa: nenhuma. O layout e a identidade foram criados para este projeto, sem copiar o Figma usado na atividade anterior.
-- Imagens usadas: fotos do Unsplash, escolhidas para representar uma sala de cinema, paisagens abertas e cinema em comunidade. Os endereços estão no atributo `src` das imagens em `index.html`.
-- Fontes usadas: DM Sans e DM Serif Display, servidas pelo Google Fonts.
-- Referência de conteúdo: a ideia de uma sessão de cinema ao ar livre, com programação de bairro e acesso gratuito.
 
 ## Conceito e decisões de design
 
