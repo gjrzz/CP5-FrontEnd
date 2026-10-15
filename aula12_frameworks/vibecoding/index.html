@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luz de Rua | Cinema ao ar livre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --noite: #151723;
+      --texto: #20232d;
+      --creme: #f5f1e8;
+      --laranja: #ef6747;
+      --amarelo: #f1c66d;
+      --cinza: #6f7077;
+      --linha: #ddd8cc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--creme);
+      color: var(--texto);
+      font-family: "DM Sans", Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 40px, 1080px);
+      margin: 0 auto;
+    }
+
+    header {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      right: 0;
+      left: 0;
+      color: white;
+    }
+
+    .navbar {
+      display: flex;
+      min-height: 76px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border-bottom: 1px solid #ffffff45;
+    }
+
+    .logo {
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .logo span {
+      color: var(--amarelo);
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      color: #e5e3e8;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--amarelo);
+    }
+
+    .botao {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 4px;
+      background: var(--laranja);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .botao:hover {
+      background: #d84f32;
+    }
+
+    .hero {
+      display: flex;
+      min-height: 570px;
+      align-items: center;
+      background: linear-gradient(90deg, #11131de8 0%, #11131db8 48%, #11131d42 100%), url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1800&q=85") center 55% / cover;
+      color: white;
+    }
+
+    .hero-texto {
+      max-width: 650px;
+      padding-top: 58px;
+    }
+
+    .etiqueta {
+      margin: 0 0 14px;
+      color: var(--amarelo);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "DM Serif Display", Georgia, serif;
+      font-weight: 400;
+    }
+
+    h1 {
+      max-width: 620px;
+      margin: 0;
+      font-size: clamp(44px, 7vw, 76px);
+      line-height: 1.02;
+    }
+
+    .hero p:not(.etiqueta) {
+      max-width: 490px;
+      margin: 20px 0 28px;
+      color: #e5e3e8;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 76px 0;
+    }
+
+    .section-top {
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .section-top .etiqueta {
+      color: var(--laranja);
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 38px;
+      line-height: 1.1;
+    }
+
+    .section-top > p:last-child {
+      margin: 12px 0 0;
+      color: var(--cinza);
+      line-height: 1.65;
+    }
+
+    .agenda {
+      background: var(--creme);
+    }
+
+    .filmes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .filme {
+      overflow: hidden;
+      border: 1px solid var(--linha);
+      background: #fffdf8;
+    }
+
+    .filme img {
+      display: block;
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .filme-info {
+      padding: 18px;
+    }
+
+    .filme-info p {
+      margin: 0 0 8px;
+      color: var(--laranja);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .filme-info h3 {
+      margin: 0 0 8px;
+      font-size: 23px;
+    }
+
+    .filme-info span {
+      color: var(--cinza);
+      font-size: 13px;
+    }
+
+    .sobre {
+      background: #e8e4d9;
+    }
+
+    .sobre-conteudo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .sobre-texto p {
+      color: var(--cinza);
+      line-height: 1.75;
+    }
+
+    .sobre-imagem {
+      display: block;
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+    }
+
+    .chamada {
+      padding: 54px 0;
+      background: var(--noite);
+      color: white;
+      text-align: center;
+    }
+
+    .chamada h2 {
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .chamada p {
+      margin: 14px 0 24px;
+      color: #d2d0d8;
+    }
+
+    footer {
+      padding: 30px 0;
+      background: var(--noite);
+      color: #cbc9d0;
+      font-size: 13px;
+    }
+
+    .footer-conteudo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid #ffffff30;
+      padding-top: 22px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 700px) {
+      .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 14px 0;
+      }
+
+      nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 22px;
+      }
+
+      .hero {
+        min-height: 620px;
+        background-position: 60% center;
+      }
+
+      .hero-texto {
+        padding-top: 100px;
+      }
+
+      .filmes,
+      .sobre-conteudo {
+        grid-template-columns: 1fr;
+      }
+
+      .filme img {
+        height: 240px;
+      }
+
+      .sobre-imagem {
+        height: 260px;
+      }
+
+      .footer-conteudo {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        width: min(100% - 28px, 1080px);
+      }
+
+      .hero {
+        min-height: 590px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="#inicio">Luz <span>de Rua</span></a>
+      <nav aria-label="Navegação principal">
+        <a href="#agenda">Programação</a>
+        <a href="#sobre">Sobre o projeto</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a class="botao" href="#agenda">Ver sessões</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-texto">
+          <p class="etiqueta">Cinema, cidade e encontro</p>
+          <h1>Filmes bons. Céu aberto. Todo mundo junto.</h1>
+          <p>A gente transforma praças e pátios em salas de cinema gratuitas para a comunidade.</p>
+          <a class="botao" href="#agenda">Descobrir a próxima sessão</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="agenda" id="agenda">
+      <div class="container">
+        <div class="section-top">
+          <p class="etiqueta">Anota na agenda</p>
+          <h2>Tem sessão chegando</h2>
+          <p>Escolha um lugar, traga uma canga e aproveite o cinema com a vizinhança.</p>
+        </div>
+        <div class="filmes">
+          <article class="filme">
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80" alt="Projetor de cinema iluminando uma sala escura">
+            <div class="filme-info">
+              <p>Sexta, 19h30</p>
+              <h3>Noite de curtas</h3>
+              <span>Praça das Mangueiras · Grátis</span>
+            </div>
+          </article>
+          <article class="filme">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Paisagem aberta ao ar livre ao entardecer">
+            <div class="filme-info">
+              <p>Sábado, 18h</p>
+              <h3>Cinema no parque</h3>
+              <span>Parque do Sol · Grátis</span>
+            </div>
+          </article>
+          <article class="filme">
+            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80" alt="Câmera de filmagem em uma produção de cinema">
+            <div class="filme-info">
+              <p>Domingo, 17h</p>
+              <h3>Filme surpresa</h3>
+              <span>Centro Cultural · Grátis</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sobre" id="sobre">
+      <div class="container sobre-conteudo">
+        <div class="sobre-texto">
+          <p class="etiqueta">A ideia é simples</p>
+          <h2>A cidade também pode ser uma sala de cinema.</h2>
+          <p>O Luz de Rua é um cineclube itinerante que leva filmes para espaços públicos. Cada sessão é feita para reunir pessoas, descobrir histórias e aproveitar os lugares do bairro de um jeito diferente.</p>
+          <p>As exibições são gratuitas. É só chegar, encontrar um lugar e curtir.</p>
+          <a class="botao" href="#contato">Quero participar</a>
+        </div>
+        <img class="sobre-imagem" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1100&q=80" alt="Pessoas aproveitando uma sessão de cinema ao ar livre">
+      </div>
+    </section>
+
+    <section class="chamada" id="contato">
+      <div class="container">
+        <p class="etiqueta">A próxima sessão pode ser perto de você</p>
+        <h2>Quer levar o Luz de Rua para o seu bairro?</h2>
+        <p>Escreva para a gente e vamos conversar sobre uma sessão na sua comunidade.</p>
+        <a class="botao" href="mailto:oi@luzderua.com.br">Fale com o projeto</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-conteudo">
+      <strong>Luz de Rua</strong>
+      <span>Cinema gratuito, feito com a comunidade.</span>
+      <span>© 2026 Luz de Rua · Projeto fictício</span>
+    </div>
+  </footer>
+</body>
+</html>
